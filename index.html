@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <title>신경현</title>
+
+    <style>
+
+        *{margin: 0; padding: 0;}
+        ul,li{list-style: none;}
+        a{color: black; text-decoration: none;}
+
+        body{height: 5000px;}
+
+        header{width: 1000px; height: 500px; background: red;}
+
+        section{position: relative; width: 1000px; height: 1500px; background: yellow}
+        section div{position: absolute; top: 0; left: 0; width: 1000px; height: 500px; background: rgba(0, 255, 0, 0.5);}
+
+        footer{width: 1000px; height: 500px; background: blue;}
+
+        @media all and (max-width:762px){
+
+		}
+
+    </style>
+
+</head>
+<body>
+
+    <!-- ? 섹션영역 총 3개 , fixed 적용되는곳 : div -->
+
+    <header></header>
+
+    <section>
+        <div></div>
+    </section>
+
+    <footer></footer>
+
+    <script>
+
+        $(window).scroll(function(){ // 스크롤이 움직이면 뭔가를 하겠다.
+            var scrollTop = $(window).scrollTop() // 세로 스크롤값을 추출
+
+            if (scrollTop < 500){
+                $('div').css({'position' : 'absolute' , 'top' : '0px'})
+            } 
+            
+            if (scrollTop >= 500){
+                $('div').css({'position' : 'fixed' , 'top' : '0px'})
+            } 
+
+            if (scrollTop >= 1000){
+                $('div').css({'position' : 'absolute' , 'top' : '500px'})
+            } 
+
+        });
+
+    </script>
+</body>
+</html>
