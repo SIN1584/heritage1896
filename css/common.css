@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BookkMyungjo-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{margin: 0; padding: 0; font-family: S-CoreDream-3Light}
+ul,li{list-style: none;}
+a{color: inherit; text-decoration: none;}
+button{background: none; border: none;}
+
+body{background: #262524}
+
+header{position: fixed; top: 0; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100px; padding: 0 3%; box-sizing: border-box; background: rgba(0,0,0,0.5); transition: 1s; z-index: 10;}
+header.on{top: -100px;}
+header h1{}
+header h1 a{display: block; width: 300px; height: 50px; background: url(../images/logo_white_hd.png) no-repeat; background-position: center; background-size: 100%;}
+
+nav.pc_menu{display: block; }
+nav.pc_menu ul{display: flex;}
+nav.pc_menu ul li{padding: 0 40px; box-sizing: border-box;}
+nav.pc_menu ul li a{font-weight: bold; color: white; transition: 0.5s;}
+
+nav.pc_menu ul li a:hover{color: #c9ab81;}
+
+nav.m_menu{ position: fixed; left: 100%; top: 0; width: 100%; height: 100vh; opacity: 0.5; transition: 0.5s; background: #262524; z-index: 11;}
+nav.m_menu ul{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); display: flex; flex-wrap: wrap;}
+nav.m_menu ul li{width: 100%;text-align: center;}
+nav.m_menu ul li a{line-height: 5rem; font-size: 2rem; color: white; transition: 0.5s;}
+
+nav.m_menu ul li a:hover{color: #c9ab81;}
+nav.m_menu.on{left: 0%; opacity: 1;}
+
+.header_inner{display: flex;}
+.header_inner .header_language{position: relative; display: flex;}
+.header_language button{display: flex; align-items: center; justify-content: space-between; width: 100px; cursor: pointer;}
+.header_language .img_box{display: flex; align-items: center;}
+.header_language .img_box img{width: 100%;}
+.header_language span{display: block; font-size: 1rem; color: white;}
+.header_language span.arrow{font-size: 1.2rem; transform: rotate(90deg); transition: 0.2s;}
+
+.header_language span.arrow.on{transform: rotate(-90deg);}
+
+.header_language ul.sub_language{display: none; position: absolute; left: 0; top: 50px; width: 100%; text-align: center; background: white;}
+.header_language ul.sub_language li{line-height: 50px;}
+.header_language ul.sub_language li a{display: block; font-size: 0.9rem; font-weight: bolder; color: black;}
+
+.header_language ul.sub_language.on{display: block;}
+.header_language ul.sub_language li:first-of-type a{display: block; color: #c9ab81}
+
+.header_inner .m_icon{display: none; position: relative; margin-left: 10px; z-index: 11;}
+.header_inner .m_icon a{display: block; width: 30px; height: 30px; transition: 0.5s; transform: rotate(180deg);}
+.header_inner .m_icon a img{width: 100%;}
+
+.header_inner .m_icon a.on{transform: rotate(-180deg);}
+
+footer{display: flex; justify-content: space-between; width: 100%; padding: 50px 3%; box-sizing: border-box; background: #121111;}
+footer .ft_left{display: flex; align-items: center;}
+footer .ft_left h2{}
+footer .ft_left h2 a{display: block; width: 250px; height: 50px; background: url(../images/logo_gray_pt.png) no-repeat; background-position: center; background-size: 100%;}
+footer .ft_left p{margin-left: 30px; color: gray; font-size: 0.9rem;}
+
+footer .ft_right{display: flex; align-items: center;}
+footer .ft_right ul.ft_info{display: flex;}
+footer .ft_right ul.ft_info li{}
+footer .ft_right ul.ft_info li a{color: white;}
+footer .ft_right ul.ft_info li a.text_g{color: gray;}
+
+footer .ft_right ul.ft_info li::after{content: '|'; padding: 0 20px; box-sizing: border-box; color: gray;}
+footer .ft_right ul.ft_info li:last-of-type::after{content: '';}
+
+footer .ft_right .ft_familySite{margin-left: 20px;}
+footer .ft_right .ft_familySite button{position: relative; display: flex; align-items: center; padding: 20px; box-sizing: border-box; border: 1px solid gray; cursor: pointer; z-index: 0;}
+footer .ft_right .ft_familySite ul{display: none; position: absolute; left: 0; top: -146px; width: 100%; background: white;}
+footer .ft_right .ft_familySite ul li{width: 100%; line-height: 3rem; padding: 0 20px; box-sizing: border-box}
+footer .ft_right .ft_familySite ul li a{display: block; color: gray;}
+footer .ft_right .ft_familySite p{color: gray;}
+footer .ft_right .ft_familySite span{margin-left: 150px; transform: rotate(90deg); color: gray; transition: 0.2s;}
+
+footer .ft_right .ft_familySite ul.on{display: block;}
+footer .ft_right .ft_familySite span.on{transform: rotate(-90deg);}
+
+
+
+@media all and (max-width:1600px){
+    footer{flex-wrap: wrap;}
+    footer .ft_left{width: 100%;}
+    footer .ft_right{width: 100%; justify-content: space-between;}
+}
+
+@media all and (max-width:1280px){
+    nav.pc_menu{display: none;}
+    .header_inner .m_icon{display: block;}
+    
+    footer .ft_left{justify-content: center;}
+    footer .ft_left h2 a{width: 225px;}
+    footer .ft_right{flex-wrap: wrap; justify-content: center;}
+    footer .ft_right ul.ft_info{width: 100%; justify-content: center; margin-top: 20px;}
+    footer .ft_right ul.ft_info li::after{padding: 0 15px;}
+    footer .ft_right .ft_familySite{width: 100%; margin-top: 20px; margin-left: 0;}
+    footer .ft_right .ft_familySite .ft_box{width: 300px; margin: 0px auto;}
+}
+
+@media all and (max-width:768px){
+    header{height: 75px;}
+
+    .header_inner .header_language{margin-left: 0;}
+    .header_inner .header_language button{width: 40px;}
+    .header_inner .header_language span:first-of-type{display: none;}
+    .header_inner .header_language ul.sub_language{left: -50%; width: 100px;}
+
+    footer .ft_left{flex-wrap: wrap;}
+    footer .ft_left h2{width: 100%;}
+    footer .ft_left h2 a{width: 180px; margin: 0 auto;}
+    footer .ft_left p{width: 100%; margin-left: 0; text-align: center;}
+    footer .ft_right .ft_familySite p{}
+    footer .ft_right ul.ft_info{flex-wrap: wrap;}
+    footer .ft_right ul.ft_info li::after{padding: 0 5px;}
+    footer .ft_right ul.ft_info li a{font-size: 0.8rem;}
+
+}
+
+@media all and (max-width:480px){
+    header h1 a{width: 200px;}
+    nav.m_menu ul li a{font-size: 1.5rem;}
+    footer .ft_right .ft_familySite .ft_box{width: 200px; margin: 0px auto;}
+    footer .ft_right .ft_familySite span{margin-left: 50px;}
+}

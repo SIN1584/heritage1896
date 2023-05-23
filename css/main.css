@@ -1,0 +1,330 @@
+#wrap{width: 100%; height: 100%; overflow: hidden;}
+
+#main1{position: relative; width: 100%; height: 100vh; transition: 0.5s;}
+#main1 .main_bg{position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url(../images/main_bg.jpg) no-repeat; background-position: center; background-size: cover;}
+
+#main1 .main_text{position: relative; left: 50%; top: 50%; transform: translate(-50%,-50%); display: flex; justify-content: center; align-items: center; width: 100%; max-width: 1500px; min-width: 320px; color: white;}
+#main1 .main_text .text_left{position: absolute; left: 50%; transform: translateX(-50%); display: flex; height: 13rem; padding: 0 5%; font-size: 13rem; line-height: 1; overflow: hidden; transition: 1.5s; opacity: 0;}
+
+#main1 .main_text .text_left.on1{height: 15rem; font-size: 15rem; opacity: 1;} /* 1초 ~ */
+#main1 .main_text .text_left.on2{left: 0; transform: translateX(0);} /* 2.5초 ~  */
+#main1 .main_text .text_left.on3{height: 10rem; font-size: 10rem;} /* 6초 ~ */
+
+#main1 .main_text .text_left span{display: block; font-weight: bold; font-family: 'NanumMyeongjoBold';} 
+
+#main1 .main_text .text_center{opacity: 0; position: relative; display: flex; flex-wrap: wrap; font-size: 2rem; transition: 1.5s;} /* 투명도0 숫자 롤링 끝난후 나옴. */
+#main1 .main_text .text_center p{text-align: center;}
+#main1 .main_text .text_center p strong{}
+
+#main1 .main_text .text_right{opacity: 0; display: flex; position: absolute; right: 50%; transform: translateX(50%); padding: 0 5%; transition: 1.5s;}
+#main1 .main_text .text_right p{display: flex; align-items: center; flex-direction: column-reverse; justify-content: end; height:15rem; font-size: 15rem; transition: 1.5s; overflow: hidden; line-height: 1;}
+#main1 .main_text .text_right p.on1{height: 15rem; font-size: 15rem;} /* 1초 ~ 적용 */
+#main1 .main_text .text_right p.on2{height: 10rem; font-size: 10rem;} /* 6초 ~ 적용 */
+#main1 .main_text .text_right p span{display: block; font-weight: bold; font-family: 'NanumMyeongjoBold';}
+#main1 .main_text .text_right p span.on{display: none;}
+
+/* 숫자 롤링 애니메이션 */
+.text_change1 span{transform: translateY(100%); animation: change1 1.5s 4s forwards;} /* 숫자 2개 */
+.text_change2 span{transform: translateY(200%); animation: change2 1.5s 4s forwards;} /* 숫자 3개 */
+.text_change3 span{transform: translateY(300%); animation: change3 1.5s 4s forwards;}
+.text_change4 span{transform: translateY(700%); animation: change4 1.5s 4s forwards;}
+
+/* 숫자 롤링 키프레임 */
+@keyframes change1{ /* 숫자수 2개 */
+    0%{transform: translateY(100%);}
+    100%{transform: translateY(0%);}
+}
+@keyframes change2{ /* 숫자수 3개 */
+    0%{transform: translateY(200%);}
+    100%{transform: translateY(0%);}
+}
+@keyframes change3{ /* 숫자수 4개 */
+    0%{transform: translateY(300%);}
+    100%{transform: translateY(0%);}
+}
+@keyframes change4{ /* 숫자수 8개 */
+    0%{transform: translateY(700%);}
+    100%{transform: translateY(0%);}
+}
+/* 끝 */
+
+/* 스크롤 다운 애니메이션 */
+#main1 .scroll{position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);}
+#main1 .scroll p{margin-bottom: 10px; font-size: 0.8rem; color: white;}
+#main1 .scroll div{display: block; width: 0.5px; height: 60px; margin: 0 auto; background: rgb(68, 68, 68);}
+#main1 .scroll i{position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%); width: 0.5px; height: 20px; background: white; animation: scroll 2s 0s infinite;}
+
+@keyframes scroll{
+    0%{bottom: 40px; opacity: 1;}
+    20%{bottom: 40px;}
+    40%{opacity: 1;}
+    70%{opacity: 0;}
+    100%{bottom: 0px; opacity: 0;}
+}
+/* 끝 */
+
+/* 메인2번 시작 */
+#main2{position: relative; width: 100%; height: 1400px;}
+#main2 .main2_inner{width: 100%; margin: 0 auto;}
+#main2 .main2_text{display: flex; align-items: center; max-width: 1500px; min-width: 320px; height: 400px; margin: 0 auto; }
+#main2 .main2_text .main2_left{display: flex; margin-right: 100px;}
+#main2 .main2_text .main2_left h2{font-weight: bolder; font-size: 3rem; color: white;}
+#main2 .main2_text .main2_left span.line{width: 3rem; height: 1px; margin: 35px; background: white;}
+#main2 .main2_text .main2_right{color: white;}
+#main2 .main2_text .main2_right p{font-size: 1.2rem;}
+
+#main2 .main2_inner.on{position: fixed; left: 0; top: 0;} /* 스크롤 이벤트 진입시 fixed 상태 진입 */ 
+#main2 .main2_inner.on2{position: relative; left: 0; top: 500px;} /* 스크롤 이벤트 500px 지날시 fixed 해제 후 500px 밑으로 이동 */
+
+/* 더보기 박스 */
+.view_more{display: flex; width: 150px; height: 50px; border: 1px solid gray; margin-top: 20px;}
+.view_more a{position: relative; display: flex; align-items: center; width: 100%; height: 100%; padding: 10px; box-sizing: border-box;}
+.view_more a span{position: absolute; background: white;}
+.view_more a span:nth-of-type(1){left: 0; top: 0;  height: 1px;}
+.view_more a:hover span:nth-of-type(1){animation: viewW 0.2s 0s forwards;}
+.view_more a span:nth-of-type(2){right: 0; top: 0; width: 1px;}
+.view_more a:hover span:nth-of-type(2){animation: viewY 0.2s 0.2s forwards;}
+.view_more a span:nth-of-type(3){right: 0; bottom: 0; height: 1px;}
+.view_more a:hover span:nth-of-type(3){animation: viewW 0.2s 0.4s forwards;}
+.view_more a span:nth-of-type(4){left: 0; bottom: 0; width: 1px;}
+.view_more a:hover span:nth-of-type(4){animation: viewY 0.2s 0.6s forwards;}
+.view_more a p{position: relative; width: 100%;}
+.view_more a p img{position: absolute; left: 50%; top: 50%; transform: translateY(-50%);}
+.view_more a:hover p img{animation: arrow 0.8s 0s forwards;}
+
+/* 더보기 박스 애니메이션 */
+@keyframes viewW{
+    0%{width: 0px;}
+    100%{width: 150px;}
+}
+@keyframes viewY{
+    0%{height: 0px;}
+    100%{height: 50px;}
+}
+
+/* 화살표 애니메이션 */
+@keyframes arrow{
+    0%{left: 50%; opacity: 1;}
+    20%{opacity: 0;}
+    33%{left: 100%;}
+    66%{left: 0%;}
+    80%{opacity: 0;}
+    100%{left: 50%; opacity: 1;}
+}
+
+#main2 .main2_imgBox{width: 75%; height: 500px; margin: 0 auto; transition: 1.5s;}
+#main2 .main2_img{width: 100%; height: 100%; background: url(../images/vr_img.jpg)no-repeat; background-position: center; background-size: cover;}
+
+#main3{position: relative; width: 100%; height: 3600px; overflow: hidden;}
+#main3 .main3_inner{position: relative; width: 100%; padding: 0 5%; box-sizing: border-box;}
+#main3 .main3_text{display: flex; justify-content: space-between; align-items: center; max-width: 1500px; min-width: 320px; height: 350px; margin: 0 auto;}
+#main3 .main3_text .main3_title{}
+#main3 .main3_text .main3_title h2{font-weight: bolder; line-height: 8rem; font-size: 3rem; color: white;}
+#main3 .main3_text .main3_title p{font-size: 1.2rem; color: white;}
+#main3 .main3_text .view_more{color: white}
+
+#main3 .main3_inner.on{position: fixed; left: 0; top: 0;} /* 스크롤 이벤트 진입시 fixed 진입 */
+#main3 .main3_inner.on2{position: relative; left: 0; top: 2500px;} /* 스크롤 이벤트 해제 후 스크롤 값 만큼 top값 줌 */
+
+#main3 .main3_collect{max-width: 1500px; margin: 0 auto;} /* 기본 크기 */
+#main3 .main3_collect .collect_inner{width: 200%;} /* 기본크기 * 2 배경 */ 
+
+#main3 .main3_collect ul{display: flex; position: relative; left: 0; top: 0; width: 100%; transition: 0.5s; z-index: 9;} /* 기본크기 *2 배경의 크기값 가져옴 */
+#main3 .main3_collect ul li{width: calc(100% / 6)} /* 실제로는 5개지만 계산하기 편하게 공백 li하나 추가해서 6개로 맞춤 */
+#main3 .main3_collect ul li>a{display: block; width: 90%;}
+#main3 .main3_collect ul li>a>img{width: 100%;}
+#main3 .main3_collect ul li>a>p{font-weight: bold; line-height: 2.5rem; color: #c9ab81;}
+#main3 .main3_collect ul li>a>span{font-size: 1.1rem; font-weight: bold; color: white;}
+
+/* 5번째 li(스크롤 도달시 투명도 0) */
+#main3 .main3_collect ul li.collect_last{position: relative; display: flex; align-items: center; width: calc(100% / 6); height: 600px; background: url(../images/slide5.jpg) no-repeat; background-position: center; background-size: cover; z-index: 9;}
+#main3 .main3_collect ul li.collect_last.on{opacity: 0;}
+#main3 .main3_collect ul li.collect_last .last_inner{position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: center; width: 100%; padding: 5%; box-sizing: border-box;}
+#main3 .main3_collect ul li.collect_last .last_inner span{display: block; width: 100%; text-align: center; line-height: 2.5rem; margin-bottom: 10px; font-size: 1.5rem; color: white;}
+
+#main3 .main3_collect ul li>a>p.on{opacity: 0; transition: 0.5s;}
+#main3 .main3_collect ul li>a>span.on{opacity: 0; transition: 0.5s;}
+
+#main3 .collect_line{position: absolute; z-index: 0; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 90%; height: 90%; border: 1px solid white;} /* 테두리 */
+
+/* 스크롤 다운 애니메이션 */
+#main3 .scroll{position: relative; margin-top: 30px; }
+#main3 .scroll>p{margin-bottom: 10px; font-size: 0.8rem; color: white;}
+#main3 .scroll .scroll_bg{position: relative; display: block; width: 60px; height: 1px; margin: 0 auto; background: rgb(68, 68, 68);}
+#main3 .scroll .scroll_line{position: absolute; left: 0; width: 20px; height: 1px; background: white; animation: scrollX 2s 0s infinite;}
+
+@keyframes scrollX{
+    0%{left: 0px; opacity: 1;}
+    20%{left: 0px;}
+    40%{opacity: 1;}
+    70%{opacity: 0;}
+    100%{left: 40px; opacity: 0;}
+}
+
+/* 스크롤 이벤트 도달시 5번째 이미지 투명 및 _open 출현 후 커짐 (중앙에서 양옆으로 커짐)*/
+#main3 .collect_open{opacity: 0; z-index: 8; display: flex; position: relative; left: 50%; top: -600px; transform: translateX(-50%); justify-content: center; align-items: center; width: 33%; height: 600px; background: url(../images/slide5.jpg) no-repeat; background-position: center; background-size: cover; transition: 0.5s;}
+#main3 .collect_open.on{opacity: 1; z-index: 9;}
+#main3 .collect_open.on2{opacity: 1; z-index: 9; left: 0; transform: translateX(0);} /* 해상도 줄어들면 왼쪽에서 오른쪽으로 커짐 */
+
+#main3 .collect_open .open_inner{display: flex; flex-wrap: wrap; justify-content: center; width: 100%;}
+#main3 .collect_open .open_inner span{display: block; width: 100%; text-align: center; line-height: 2.5rem; margin-bottom: 10px; font-size: 1.5rem; color: white; transition: 0.5s;}
+
+/* 검색창 _open 크기에 맞춰서 점점 커짐 */
+#main3 .collect_search{opacity: 0; position: relative; width: 50%; height: 60px; padding: 0 10px; border: 1px solid white; box-sizing: border-box; z-index: 10; transition: 1s;}
+#main3 .collect_search.on{opacity: 1; width: 70%;}
+#main3 .collect_search form{display: flex; justify-content: space-between; align-items: center;}
+#main3 .collect_search input{width: 80%; height: 60px; background: none; border: none; outline: none; color: white;}
+#main3 .collect_search button{width: 30px; height: 30px; background: url(../images/icon_search.png) no-repeat; background-size: cover; background-position: center; cursor: pointer;}
+
+/* 메인4 시작 */
+#main4{position: relative; width: 100%; margin-bottom: 100px; color: white;}
+#main4 .main4_inner{max-width: 1500px; margin: 0 auto; box-sizing: border-box;}
+#main4 .main4_text{display: flex; justify-content: space-between; align-items: center; padding: 60px 0; box-sizing: border-box; border-bottom: 2px solid white;}
+#main4 .main4_text h2{font-weight: bloder; line-height: 8rem; font-size: 3rem; color: white;}
+
+#main4 ul.promotion{color: white;}
+#main4 ul.promotion li{padding: 30px 0; border-bottom: 0.5px solid lightgray;}
+#main4 ul.promotion li a{display: flex; justify-content: space-between; align-items: center;}
+#main4 ul.promotion li a p.left{width: 20%; text-align: center; color: #cca77c;}
+#main4 ul.promotion li a p.center{width: 50%; margin-right: 10%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+#main4 ul.promotion li a p.center span{width: 100%; line-height: 3rem;}
+#main4 ul.promotion li a p.center strong{display: block;}
+#main4 ul.promotion li a p.right{width: 30%; text-align: center; overflow: hidden;}
+#main4 ul.promotion li a p.right span{color: #cca77c; margin: 0 10px;}
+#main4 ul.promotion li a p.right span.arrow{position: relative; left: 0; top: 0;}
+
+#main4 ul.promotion li a:hover span.arrow{animation: arrow2 0.5s 0s forwards; }
+
+/* 마우스 호버 화살표 키프레임 */
+@keyframes arrow2{
+    0%{left: 0; opacity: 1;}
+    25%{left: 30px; opacity: 1;}
+    50%{left: 30px; opacity: 0;}
+    80%{left: -20px; opacity: 0;}
+    100%{left: 0; opacity: 1;}
+}
+
+/* 반응형 식 */
+@media all and (max-width:1600px){
+    #main1 .main_text .text_left{height: 11rem; font-size: 11rem;}
+    #main1 .main_text .text_left.on1{height: 13rem; font-size: 13rem;}
+    #main1 .main_text .text_left.on3{height: 8rem; font-size: 8rem;}
+    #main1 .main_text .text_center{font-size: 1.5rem;}
+    #main1 .main_text .text_right p.on1{height: 13rem; font-size: 13rem;}
+    #main1 .main_text .text_right p.on2{height: 8rem; font-size: 8rem;}
+
+    #main2 .main2_text .main2_left h2{font-size: 2rem;}
+    #main2 .main2_text .main2_right p{font-size: 1rem;}
+    #main2 .main2_imgBox.on{width: 85%;}
+
+    #main3 .main3_text .main3_title h2{line-height: 8rem; font-size: 2.5rem;}
+    #main3 .main3_text .main3_title p{font-size: 1rem;}
+    #main3 .main3_collect ul li.collect_last .last_inner span{line-height: 2rem; font-size: 1.2rem;}
+    #main3 .collect_open .open_inner span{line-height: 2rem; font-size: 1.2rem;}
+
+    #main4 .main4_inner{width: 100%; padding: 0 5%; box-sizing: border-box;}
+    #main4 .main4_text h2{line-height: 8rem; font-size: 2.5rem;}
+}
+
+@media all and (max-width:1280px){
+    #main1 .main_text .text_left.on1{height: 7.5rem; font-size: 7.5rem;}
+    #main1 .main_text .text_left.on3{height: 5.2rem; font-size: 5.2rem;}
+    #main1 .main_text .text_center{font-size: 1rem;}
+    #main1 .main_text .text_right p.on1{height: 7.5rem; font-size: 7.5rem;}
+    #main1 .main_text .text_right p.on2{height: 5.2rem; font-size: 5.2rem;}
+
+    #main2 .main2_text .main2_left h2{font-size: 1.8rem;}
+    #main2 .main2_text .main2_right p{font-size: 0.9rem;}
+    #main2.on{height: 1600px;}
+    #main2 .main2_imgBox.on2{height: 700px;}
+
+    #main3 .main3_text .main3_title h2{line-height: 7rem; font-size: 2.3rem;}
+    #main3 .main3_text .main3_title p{font-size: 0.9rem;}
+    #main3 .main3_collect ul li.collect_last .last_inner span{line-height: 2rem; font-size: 1rem;}
+    #main3 .collect_open .open_inner span{line-height: 2rem; font-size: 1rem;}
+    #main3 .main3_collect ul li>a>span{font-size: 1rem;}
+    #main3 .main3_collect ul li.collect_last{height: 550px;}
+    #main3 .collect_open{top: -550px; height: 550px;}
+
+    #main4 .main4_text h2{line-height: 7rem; font-size: 2.3rem;}
+}
+
+@media all and (max-width:1024px){
+    #main2 .main2_text{flex-wrap: wrap; justify-content: center; padding: 0px 5%; height: 300px; box-sizing: border-box;}
+    #main2 .main2_text .main2_left{width: 100%; margin-right: 0;}
+    #main2 .main2_text .main2_right{width: 100%;}
+    #main2 .main2_text .main2_left span.line{display: none;}
+    #main2 .main2_text .main2_left h2{width: 100%}
+    #main2 .main2_imgBox.on{width: 90%;}
+    #main2 .main2_text .main2_left h2{font-size: 1.6rem;}
+    #main2 .main2_text .main2_right p{font-size: 0.8rem;}
+    #main2.on{height: 1500px;}
+    #main2 br{display: none;}
+
+    #main3 .main3_text{height: 300px;}
+    #main3 .main3_text .main3_title h2{line-height: 6rem; font-size: 2rem;}
+    #main3 .main3_text .main3_title p{font-size: 0.8rem;}
+    #main3 .collect_search{height: 50px;}
+    #main3 .collect_search input{height: 50px;}
+    #main3 .main3_collect .collect_inner{width: 400%;}
+    #main3 .main3_text{flex-wrap: wrap;}
+    #main3 .main3_text .main3_title{width: 100%;}
+    
+    #main4 ul.promotion li a p.center{margin-right: 0;}
+    #main4 .main4_text h2{line-height: 6rem; font-size: 2rem;}
+}
+
+@media all and (max-width:768px){
+    #main1 .main_text{overflow: hidden;}
+    #main1 .main_text .text_left.on1{height: 5.5rem; font-size: 5.5rem;}
+    #main1 .main_text .text_left.on3{height: 5rem; font-size: 5rem;}
+    #main1 .main_text .text_center{padding-top: 20rem; font-size: 1.5rem;}
+    #main1 .main_text .text_right p.on1{height: 5.5rem; font-size: 5.5rem;}
+    #main1 .main_text .text_right p.on2{height: 5rem; font-size: 5rem;}
+
+    #main2 .main2_text .main2_left h2{font-size: 1.4rem;}
+    #main2 .main2_text .main2_right p{font-size: 0.7rem;}   
+    #main2.on{height: 1300px;}
+    #main2 .main2_imgBox.on2{height: 500px;}
+
+    #main3 .main3_text{height: 300px;}
+    #main3 .main3_collect .collect_inner{width: 600%;}
+    #main3 .main3_text .main3_title p{font-size: 0.7rem;}
+    #main3 .main3_collect ul li.collect_last .last_inner span{line-height: 1.7rem; font-size: 0.8rem;}
+    #main3 .collect_open .open_inner span{line-height: 1.7rem; font-size: 0.8rem;}
+    #main3 .main3_collect ul li>a>span{font-size: 0.9rem;}
+    #main3 .main3_collect ul li.collect_last{height: 500px;}
+    #main3 .collect_open{top: -500px; height: 500px;}
+    #main3 .main3_collect ul li.collect_last .last_inner span{line-height: 2rem; font-size: 1rem;}
+    #main3 .collect_open .open_inner span{line-height: 2rem; font-size: 1rem;}
+    
+    #main4 .main4_text h2{font-size: 1.4rem;}
+    #main4 ul.promotion li a p.left{width: 15%; margin-left: 5%; font-size: 0.9rem;}
+    #main4 ul.promotion li a p.center{width: 70%; margin-right: 5%;}
+    #main4 ul.promotion li a p.right{display: none;}
+    #main4 ul.promotion li a p.center span{font-size: 0.9rem;}
+    #main4 ul.promotion li a p.right span{font-size: 0.9rem;}
+}
+
+@media all and (max-width:480px){
+    #main1 .main_text .text_left.on1{height: 3.5rem; font-size: 3.5rem;}
+    #main1 .main_text .text_left.on3{height: 3rem; font-size: 3rem;}
+    #main1 .main_text .text_center{padding-top: 20rem; font-size: 1rem;}
+    #main1 .main_text .text_right p.on1{height: 3.5rem; font-size: 3.5rem;}
+    #main1 .main_text .text_right p.on2{height: 3rem; font-size: 3rem;}
+
+    #main2 .main2_text .main2_left h2{font-size: 1.2rem;}
+    #main2 .main2_text .main2_right p{font-size: 0.6rem;}  
+    #main2 .main2_text{height: 300px;}
+    #main2.on{height: 1200px;}
+    #main2 .main2_imgBox.on2{height: 400px;}
+
+    #main3{height: 3600px;}
+    #main3 .main3_collect ul li.collect_last{height: 400px;}
+    #main3 .collect_open{top: -400px; height: 400px;}
+
+    #main4 ul.promotion li a p.left{width: 15%; margin-left: 5%; font-size: 0.75rem;}
+    #main4 ul.promotion li a p.center{width: 65%; margin-right: 5%;}
+    #main4 ul.promotion li a p.center span{font-size: 0.75rem;}
+    #main4 ul.promotion li a p.right span{font-size: 0.75rem;}
+}
